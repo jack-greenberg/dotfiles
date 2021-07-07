@@ -70,8 +70,10 @@ alias cdp='cd `pbpaste`'
 # Git
 alias gdog='git log --all --decorate --oneline --graph'
 alias gql='gitqlite'
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias dot=config
+alias dot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# Shows if there are any changed dotfiles
+dot status --short
 
 # Docker
 alias dps='docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.ID}}\t{{.Status}}"'

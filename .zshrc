@@ -3,10 +3,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# if [[ ! -v TMUX && $TERM_PROGRAM != "vscode" ]]; then
-#     tmux_chooser && exit
-# fi
-
 # VARIABLES
 export GOPATH=$HOME/go
 export ZSH=$HOME/.oh-my-zsh

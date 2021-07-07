@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 alias reload='source ~/.zshrc'
 alias ipaddr='hostname -I | sed s/\ /\\n/g'
@@ -12,24 +12,15 @@ alias l='ls --color=tty -1'
 alias ls='ls --color=tty'
 alias la='ls -lah'
 alias td="git ls-tree -r --name-only HEAD | tree --fromfile"
-
-# CDing
-alias ind='cd ~/indico'
-alias circ='cd ~/classes/circuits'
-alias comp='cd ~/classes/comparch'
-alias circuits='cd ~/classes/circuits'
-alias comparch='cd ~/classes/comparch'
-alias ar='cd ~/formula/ar/'
+alias lt='tree -aF'
 
 # Applications
 alias atom='atom .'
 alias matlab='matlab -softwareopengl -nosplash'
 alias ml='matlab -nodesktop -nosplash'
 alias jvpn='sudo openconnect --juniper jvpn.olin.edu -u jgreenberg'
-alias i3pom='i3-gnome-pomodoro'
 alias chrome='google-chrome'
 alias vim='nvim'
-alias v='nvim'
 alias fd='fdfind'
 alias zl='zq -l'
 alias whereami='cat ~/.address'
@@ -80,6 +71,7 @@ alias cdp='cd `pbpaste`'
 alias gdog='git log --all --decorate --oneline --graph'
 alias gql='gitqlite'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias dot=config
 
 # Docker
 alias dps='docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.ID}}\t{{.Status}}"'
@@ -123,3 +115,38 @@ alias rules="xdg-open ${FORMULA}/OEM_Preferred_Parts/rules.pdf"
 alias ivboards="cd ${FORMULA}/MKIV-Boards/"
 alias ivcode="cd ${FORMULA}/MKIV-Code/"
 alias parts="cd ${FORMULA}/OEM_Preferred_Parts/"
+
+function pr-checkout() {
+  local jq_template pr_number
+
+  jq_template='"'\
+'#\(.number) - \(.title)'\
+'\t'\
+'Author: \(.user.login)\n'\
+'Created: \(.created_at)\n'\
+'Updated: \(.updated_at)\n\n'\
+'\(.body)'\
+'"'
+  
+  pr_number=$(
+    gh api 'repos/:owner/:repo/pulls' |
+      jq ".[] | $jq_template" |
+      sed -e 's/"\(.*\)"/\1/' -e 's/\\t/\t/' |
+      fzf \
+        --with-nth=1 \
+        --delimiter='\t' \
+        --preview='echo -e {2}' \
+        --preview-window=top:wrap |
+      sed 's/^#\([0-9]\+\).*/\1/'
+  )
+
+  if [ -n $pr_number ]; then
+    gh pr checkout $pr_number
+  fi
+}
+
+function unix_date() {
+  date --date="@$1"
+}
+
+alias hist="history | fzf --tac"

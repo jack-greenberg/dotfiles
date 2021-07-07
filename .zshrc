@@ -15,6 +15,7 @@ export EDITOR=vim
 export ZSH_THEME=spaceship
 export ZEPHYR_BASE=~/zephyr/zephyr
 
+fpath[1,0]=~/.zsh/completion/
 fpath+=~/.zfunc
 
 # PATH
@@ -61,7 +62,9 @@ eval "$(pyenv virtualenv-init -)"
 eval "$(rbenv init -)"
 eval "$(thefuck --alias)"
 
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/bitcomplete bit
+
+bindkey -v
+export KEYTIMEOUT=1

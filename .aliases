@@ -8,8 +8,8 @@ setup () {
 }
 
 # Directory listing
-alias l='ls --color=tty -1'
-alias ls='ls --color=tty'
+alias l='ls -1'
+alias ls='ls'
 alias la='ls -lah'
 alias td="git ls-tree -r --name-only HEAD | tree --fromfile"
 alias lt='tree -aF'
@@ -24,7 +24,6 @@ alias vim='nvim'
 alias fd='fdfind'
 alias zl='zq -l'
 alias whereami='cat ~/.address'
-alias open='xdg-open'
 alias ltspice='wine ~/.wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx64.exe'
 alias f="fzf --preview 'head -n `tput cols` {}'"
 alias mars="java -jar ~/Documents/Mars4_5.jar"

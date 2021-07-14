@@ -1,8 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # VARIABLES
 export GOPATH=$HOME/go
 export ZSH=$HOME/.oh-my-zsh
@@ -10,6 +5,8 @@ export TERM=xterm-256color
 export EDITOR=vim
 export ZSH_THEME=spaceship
 export ZEPHYR_BASE=~/zephyr/zephyr
+export ALACRITTYRC=~/.config/alacritty/alacritty.yml
+export VIMRC=~/.config/nvim/init.lua
 
 fpath[1,0]=~/.zsh/completion/
 fpath+=~/.zfunc
@@ -31,19 +28,22 @@ prepend_path /home/jgreenberg/.rbenv/plugins/ruby-build/bin
 
 # PLUGINS
 plugins=(
-  poetry
   git
-  zsh-syntax-highlighting
   docker
   docker-compose
 )
 
+# Use for dotfiles that aren't managed by dot
+try_source() {
+    [ ! -s $1 ] || source $1
+}
+
 # SOURCES
-source $ZSH/oh-my-zsh.sh
+try_source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases
-source $HOME/.olinrc
 source $HOME/.spaceship
-[ ! -s /home/jgreenberg/.travis/travis.sh ] || source $HOME/.travis/travis.sh
+try_source $HOME/.travis/travis.sh
+try_source $HOME/astris_dev/unpack_all.sh
 
 # OPTIONS
 unsetopt AUTO_CD

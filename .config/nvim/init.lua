@@ -4,14 +4,6 @@ local fn = vim.fn
 local g = vim.g
 local opt = vim.opt
 
-cmd 'set nocompatible'
-cmd 'filetype plugin indent on'
-cmd 'syntax on'
-cmd 'set nobackup'
-cmd 'set nowritebackup'
-cmd 'set noswapfile'
-cmd 'set background=light'
-
 -- Package Manager
 cmd 'packadd paq-nvim'
 local paq = require('paq-nvim').paq
@@ -55,17 +47,18 @@ lsp.ccls.setup{}
 require('nvim_comment').setup()
 
 -- Options and Settings
+cmd 'set nobackup'
+cmd 'set nowritebackup'
+cmd 'set noswapfile'
+opt.background = 'light'
 opt.hidden = true
 opt.number = true
 opt.updatetime = 300
 opt.shortmess = 'c'
-opt.hlsearch = true
-opt.incsearch = true
 opt.smartcase = true
 opt.showcmd = true
 opt.so = 5
 opt.smarttab = true
-opt.ai = true
 opt.si = true
 opt.wildmenu = true
 opt.guicursor = ""

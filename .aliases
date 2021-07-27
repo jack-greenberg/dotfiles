@@ -8,8 +8,18 @@ setup () {
 }
 
 # Directory listing
-alias l='ls -1'
-alias ls='ls'
+
+# Make it colorful
+_OS=$(uname -s)
+if [ $_OS = "Linux" ]
+then
+    alias ls='ls --color'
+elif [ $_OS = "Darwin" ]
+then
+    alias ls='ls -G'
+fi
+
+alias l='ls -1F'
 alias la='ls -lah'
 alias td="git ls-tree -r --name-only HEAD | tree --fromfile"
 alias lt='tree -aF'

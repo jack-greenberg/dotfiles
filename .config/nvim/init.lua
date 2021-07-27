@@ -1,6 +1,5 @@
 -- Aliases
-local cmd = vim.cmd
-local fn = vim.fn
+local cmd = vim.cmd local fn = vim.fn
 local g = vim.g
 local opt = vim.opt
 
@@ -95,20 +94,18 @@ map('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-map('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
 
 -- Colorscheme
-cmd('hi LineNr guifg=darkgray ctermfg=gray')
-cmd('hi CursorLineNr guifg=black cterm=bold ctermfg=black')
+cmd('hi LineNr guifg=darkgray ctermfg=darkgray')
+cmd('hi CursorLineNr guifg=black cterm=bold ctermfg=white')
 cmd('hi Comment gui=italic cterm=italic ctermfg=lightgray')
-cmd('hi MatchParen guibg=lightgray ctermbg=250')
-cmd('hi NonText guifg=white ctermfg=255')
-cmd('hi StatusLine guibg=bg guifg=black gui=reverse ctermbg=0 ctermfg=252')
-cmd('hi StatusLineNC guibg=bg guifg=black gui=reverse ctermbg=0 ctermfg=254')
+cmd('hi MatchParen guibg=lightgray ctermbg=darkgray')
+cmd('hi NonText guifg=bg ctermfg=0')
+cmd('hi StatusLine guibg=bg guifg=black gui=reverse ctermbg=0 ctermfg=15')
+cmd('hi StatusLineNC guibg=bg guifg=black gui=reverse ctermbg=0 ctermfg=darkgray')
 cmd('hi VertSplit guifg=white guibg=black cterm=NONE ctermbg=0 ctermfg=15')
-cmd('hi Visual ctermbg=253')
-cmd('hi ActiveWindow ctermbg=15')
-cmd('hi InactiveWindow ctermbg=254')
+cmd('hi Visual ctermbg=240')
+cmd('hi ActiveWindow ctermbg=0')
 
 vim.api.nvim_exec([[
 augroup WindowManagement

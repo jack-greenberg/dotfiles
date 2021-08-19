@@ -70,6 +70,7 @@ opt.splitright = true
 opt.linebreak = true
 opt.textwidth = 80
 opt.fo = 'c'
+opt.cino = 'l1'
 
 -- Mappings
 local function map(mode, lhs, rhs, opts)
@@ -116,6 +117,17 @@ augroup END
 function! Handle_Win_Enter()
   setlocal winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
 endfunction
+
+
+" when you enter a (new) buffer
+augroup set-commentstring-ag
+autocmd!
+autocmd BufEnter *.cpp,*.h,*.c :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
+autocmd BufFilePost *.cpp,*.h,*.c :lua vim.api.nvim_buf_set_option(0, "commentstring", "// %s")
+
+autocmd BufEnter *.pu,*.puml,*.plantuml :lua vim.api.nvim_buf_set_option(0, "commentstring", "' %s")
+autocmd BufFilePost *.pu,*.puml,*.plantuml :lua vim.api.nvim_buf_set_option(0, "commentstring", "' %s")
+augroup END
 ]], true)
 
 -- Don't highlight when sourcing this file

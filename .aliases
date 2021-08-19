@@ -37,6 +37,7 @@ alias whereami='cat ~/.address'
 alias ltspice='wine ~/.wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx64.exe'
 alias f="fzf --preview 'head -n `tput cols` {}'"
 alias mars="java -jar ~/Documents/Mars4_5.jar"
+alias todo="git grep -l TODO | xargs -n1 git blame | grep 'Jack Greenberg' | grep TODO -C 2"
 
 wttr() {
   location=`whereami`

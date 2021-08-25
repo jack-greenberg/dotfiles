@@ -1,10 +1,10 @@
 SPACESHIP_PROMPT_ORDER=(
+  vi_mode       # vi mode
   dir           # Current directory section
   host          # Hostname section
   git           # Git section (git_branch + git_status)
   char          # Prompt character
 )
-SPACESHIP_RPROMPT_ORDER=(vi_mode)
 
 SPACESHIP_PROMPT_ADD_NEWLINE=false
 SPACESHIP_PROMPT_SEPARATE_LINE=false

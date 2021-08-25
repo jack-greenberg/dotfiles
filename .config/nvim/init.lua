@@ -41,7 +41,6 @@ local lsp = require('lspconfig')
 
 lsp.rls.setup{}
 lsp.rust_analyzer.setup{}
-lsp.ccls.setup{}
 
 require('nvim_comment').setup()
 
@@ -99,6 +98,7 @@ map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 -- Colorscheme
 cmd('hi LineNr guifg=darkgray ctermfg=darkgray')
 cmd('hi CursorLineNr guifg=black cterm=bold ctermfg=white')
+cmd('hi Folded ctermbg=none')
 cmd('hi Comment gui=italic cterm=italic ctermfg=lightgray')
 cmd('hi MatchParen guibg=lightgray ctermbg=darkgray')
 cmd('hi NonText guifg=bg ctermfg=0')

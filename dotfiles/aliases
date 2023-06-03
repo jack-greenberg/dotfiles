@@ -1,0 +1,180 @@
+#!/bin/bash
+
+alias reload='source ~/.zshrc'
+alias ipaddr='hostname -I | sed s/\ /\\n/g'
+setup () {
+    xinput set-prop `xinput list --id-only "pointer:Logitech MX Master 3"` "libinput Natural Scrolling Enabled" 1
+    setxkbmap -option caps:escape
+}
+
+# Directory listing
+
+# Make it colorful
+_OS=$(uname -s)
+if [ $_OS = "Linux" ]
+then
+    alias ls='ls --color'
+elif [ $_OS = "Darwin" ]
+then
+    alias ls='ls -G'
+fi
+
+alias l='ls -1F'
+alias la='ls -lah'
+alias td="git ls-tree -r --name-only HEAD | tree --fromfile"
+alias lt='tree -aF'
+
+# Applications
+alias atom='atom .'
+alias matlab='matlab -softwareopengl -nosplash'
+alias ml='matlab -nodesktop -nosplash'
+alias jvpn='sudo openconnect --juniper jvpn.olin.edu -u jgreenberg'
+alias chrome='google-chrome'
+alias vim='nvim'
+alias fd='fdfind'
+alias zl='zq -l'
+alias whereami='cat ~/.address'
+alias ltspice='wine ~/.wine/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx64.exe'
+alias f="fzf --preview 'head -n `tput cols` {}'"
+alias mars="java -jar ~/Documents/Mars4_5.jar"
+alias todo="git grep -l TODO | xargs -n1 git blame --show-name | grep 'Jack Greenberg' | grep TODO -C 2"
+alias bazel=bazelisk
+
+wttr() {
+  location=`whereami`
+  local request="wttr.in/${1-$location}"
+  [ "$(tput cols)" -lt 125 ] && request+='?n'
+  curl -H "Accept-Language: ${LANG%_*}" --compressed "$request"
+}
+
+im_at() {
+  echo $1 | tee ~/.address
+}
+
+# Tmux (not in tmux)
+alias tml='tmux ls 2> /dev/null || echo "No tmux sessions."'
+alias tma='tmux attach -t'
+alias tmk='tmux kill-session -t'
+alias tmd='tmux detach'
+alias tmn='tmux new-session -s'
+
+# System
+alias sleepy-time='shutdown now'
+alias nap-time='sudo reboot now'
+alias mon='xrandr -q | grep ' connected' | cut -d ' ' -f1'
+alias reload-audio='pulseaudio -k; sudo alsa force-reload'
+alias scroll='xinput set-prop `xinput list --id-only "pointer:Logitech MX Master 3"` "libinput Natural Scrolling Enabled" 1'
+
+print_color () {
+  for COLOR in {1..255};
+  do
+    echo -en "\e[38;5;${COLOR}m${COLOR} ";
+  done;
+}
+
+# Copy/Paste
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+alias pwdc='pwd | pbcopy'
+alias cdp='cd `pbpaste`'
+
+# Git
+alias gdog='git log --all --decorate --oneline --graph'
+alias gql='gitqlite'
+alias dot='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# Shows if there are any changed dotfiles
+# dot status --short
+
+# Docker
+alias dps='docker ps -a --format "table {{.Names}}\t{{.Image}}\t{{.ID}}\t{{.Status}}"'
+alias dc='docker-compose'
+alias dlogs='docker-compose logs -f'
+
+# Finding
+alias wheres='grep -rnw . -e'
+
+# Tools
+extract () {
+  if [ -f $1 ]; then
+    case $1 in
+      *.tar.bz2)  tar -jxvf $1                        ;;
+      *.tar.gz)   tar -zxvf $1                        ;;
+      *.bz2)      bunzip2 $1                          ;;
+      *.gz)       gunzip $1                           ;;
+      *.tar)      tar -xvf $1                         ;;
+      *.tbz2)     tar -jxvf $1                        ;;
+      *.tgz)      tar -zxvf $1                        ;;
+      *.zip)      unzip $1                            ;;
+      *.ZIP)      unzip $1                            ;;
+      *.pax)      cat $1 | pax -r                     ;;
+      *.pax.Z)    uncompress $1 --stdout | pax -r     ;;
+      *.rar)      unrar x $1                          ;;
+      *.Z)        uncompress $1                       ;;
+      *)          echo "'$1' cannot be extracted/mounted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+# Formula
+FORMULA="${HOME}/formula"
+
+alias vboards="cd ${FORMULA}/MKV-Boards/"
+alias vcode="cd ${FORMULA}/MKV-Code/"
+alias parts="cd ${FORMULA}/OEM_Preferred_Parts/"
+alias rules="xdg-open ${FORMULA}/OEM_Preferred_Parts/rules.pdf"
+alias ivboards="cd ${FORMULA}/MKIV-Boards/"
+alias ivcode="cd ${FORMULA}/MKIV-Code/"
+alias parts="cd ${FORMULA}/OEM_Preferred_Parts/"
+
+function prch() {
+  local jq_template pr_number
+
+  jq_template='"'\
+'#\(.number) - \(.title)'\
+'\t'\
+'Author: \(.user.login)\n'\
+'Created: \(.created_at)\n'\
+'Updated: \(.updated_at)\n\n'\
+'\(.body)'\
+'"'
+  
+  pr_number=$(
+    gh api 'repos/:owner/:repo/pulls' |
+      jq ".[] | $jq_template" |
+      sed -e 's/"\(.*\)"/\1/' -e 's/\\t/\t/' |
+      fzf \
+        --with-nth=1 \
+        --delimiter='\t' \
+        --preview='echo -e {2}' |
+      sed 's/^#\([0-9]\+\).*/\1/'
+  )
+
+  if [ -n $pr_number ]; then
+    gh pr checkout $pr_number
+  fi
+}
+
+function unix_date() {
+  date --date="@$1"
+}
+
+alias hist="history | fzf --tac"
+
+function canup() {
+    sudo modprobe can
+    sudo slcand -o -c -s6 $1 $2
+    sudo ifconfig can0 up
+    sudo ip link set can0 type can bitrate 500000
+}
+
+# ledger
+alias allocations='ledger bal Allocation --current -f 2021.journal --format "%-17((depth_spacer)+(partial_account))%10(percent(market(display_total), market(parent.total)))%16(market(display_total))\n%/"'
+
+alias zj='zellij'
+alias zjl='zellij list-sessions'
+alias zja='zellij attach'
+
+alias saturn='wine ~/.wine/drive_c/Saturn\ PCB\ Design/PCB\ Toolkit\ V8/PCB\ Toolkit\ V8.23.exe'

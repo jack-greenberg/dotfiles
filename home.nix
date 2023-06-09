@@ -21,6 +21,7 @@
     ];
 
     file = {
+      ".aliases".source = dotfiles/aliases;
       ".zshrc".source = dotfiles/zshrc;
       ".config/starship.toml".source = dotfiles/starship.toml;
       ".config/nvim/init.lua".source = dotfiles/init.lua;

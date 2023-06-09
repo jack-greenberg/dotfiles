@@ -1,0 +1,172 @@
+window:
+  padding:
+    x: 4
+    y: 4
+      # background_opacity: 0.9
+cursor:
+  style:
+    shape: Underline
+    blinking: Always
+  blink_interval: 250
+font:
+  normal:
+    family: DejaVu Sans Mono
+  bold:
+    family: DejaVu Sans Mono
+    style: Bold
+  italic:
+    family: DejaVu Sans Mono
+    style: Oblique
+  bold_italic:
+    family: DejaVu Sans Mono
+    style: Bold Oblique
+  size: 7
+  offset:
+    x: 0
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 0
+colors:
+  # Default colors
+  primary:
+    background: '0x003153'
+    foreground: '0xffffff'
+
+  # Normal colors
+  normal:
+    black:   '0x000000'
+    red:     '0xf1535a'
+    green:   '0x16ba62'
+    yellow:  '0xaaaaee'
+    blue:    '0x0098ff'
+    magenta: '0xb500e2'
+    cyan:    '0x00e8ff'
+    white:   '0xffffff'
+
+  # Bright colors
+  bright:
+    black:   '0x000000'
+    red:     '0xf1535a'
+    green:   '0x16ba62'
+    yellow:  '0xaaaaee'
+    blue:    '0x0098ff'
+    magenta: '0xb500e2'
+    cyan:    '0x00e8ff'
+    white:   '0xffffff'
+
+# colors:
+#   primary:
+#     background: '#282a36'
+#     foreground: '#f8f8f2'
+#     bright_foreground: '#ffffff'
+#   cursor:
+#     text: CellBackground
+#     cursor: CellForeground
+#   vi_mode_cursor:
+#     text: CellBackground
+#     cursor: CellForeground
+#   search:
+#     matches:
+#       foreground: '#44475a'
+#       background: '#50fa7b'
+#     focused_match:
+#       foreground: '#44475a'
+#       background: '#ffb86c'
+#     bar:
+#       background: '#282a36'
+#       foreground: '#f8f8f2'
+#   hints:
+#     start:
+#       foreground: '#282a36'
+#       background: '#f1fa8c'
+#     end:
+#       foreground: '#f1fa8c'
+#       background: '#282a36'
+#   line_indicator:
+#     foreground: None
+#     background: None
+#   selection:
+#     text: CellForeground
+#     background: '#44475a'
+#   normal:
+#     black: '#21222c'
+#     red: '#ff5555'
+#     green: '#50fa7b'
+#     yellow: '#f1fa8c'
+#     blue: '#bd93f9'
+#     magenta: '#ff79c6'
+#     cyan: '#8be9fd'
+#     white: '#f8f8f2'
+#   bright:
+#     black: '#6272a4'
+#     red: '#ff6e6e'
+#     green: '#69ff94'
+#     yellow: '#ffffa5'
+#     blue: '#d6acff'
+#     magenta: '#ff92df'
+#     cyan: '#a4ffff'
+#     white: '#ffffff'
+#   # Default colors
+#   primary:
+#     background: '0x24283b'
+#     foreground: '0xc0caf5'
+# 
+#   # Normal colors
+#   normal:
+#     black:   '0x1D202F'
+#     red:     '0xf7768e'
+#     green:   '0x9ece6a'
+#     yellow:  '0xe0af68'
+#     blue:    '0x7aa2f7'
+#     magenta: '0xbb9af7'
+#     cyan:    '0x7dcfff'
+#     white:   '0xa9b1d6'
+# 
+#   # Bright colors
+#   bright:
+#     black:   '0x414868'
+#     red:     '0xf7768e'
+#     green:   '0x9ece6a'
+#     yellow:  '0xe0af68'
+#     blue:    '0x7aa2f7'
+#     magenta: '0xbb9af7'
+#     cyan:    '0x7dcfff'
+#     white:   '0xc0caf5'
+# 
+#   indexed_colors:
+#     - { index: 16, color: '0xff9e64' }
+#     - { index: 17, color: '0xdb4b4b' }
+
+# colors:
+#   primary:
+#     background: '0x1f1f28'
+#     foreground: '0xdcd7ba'
+# 
+#   normal:
+#     black:   '0x090618'
+#     red:     '0xc34043'
+#     green:   '0x76946a'
+#     yellow:  '0xc0a36e'
+#     blue:    '0x7e9cd8'
+#     magenta: '0x957fb8'
+#     cyan:    '0x6a9589'
+#     white:   '0xc8c093'
+# 
+#   bright:
+#     black:   '0x727169'
+#     red:     '0xe82424'
+#     green:   '0x98bb6c'
+#     yellow:  '0xe6c384'
+#     blue:    '0x7fb4ca'
+#     magenta: '0x938aa9'
+#     cyan:    '0x7aa89f'
+#     white:   '0xdcd7ba'
+# 
+#   selection:
+#     background: '0x2d4f67'
+#     foreground: '0xc8c093'
+# 
+#   indexed_colors:
+#     - { index: 16, color: '0xffa066' }
+#     - { index: 17, color: '0xff5d62' }

@@ -16,11 +16,16 @@
       bazelisk
       meld
       starship
+      neovim
+      tmux
     ];
 
     file = {
       ".zshrc".source = dotfiles/zshrc;
       ".config/starship.toml".source = dotfiles/starship.toml;
+      ".config/nvim/init.lua".source = dotfiles/init.lua;
+      ".config/alacritty/alacritty.yml".source = dotfiles/alacritty.yml;
+      ".tmux.conf".source = dotfiles/tmux.conf;
     };
 
     sessionVariables = {

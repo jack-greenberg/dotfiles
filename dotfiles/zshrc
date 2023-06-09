@@ -20,6 +20,7 @@ try_source() {
 
 # SOURCES
 source $HOME/.aliases
+source $ZSH/oh-my-zsh.sh
 try_source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
 
 if [ -n "${commands[fzf-share]}" ]; then

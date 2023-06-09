@@ -18,6 +18,7 @@
       starship
       neovim
       tmux
+      zoxide
     ];
 
     file = {

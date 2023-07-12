@@ -79,8 +79,8 @@ require'telescope'.setup {
 
 local lsp = require'lspconfig'
 
-lsp.rls.setup{}
 lsp.rust_analyzer.setup{}
+lsp.bashls.setup{}
 
 require('nvim_comment').setup({
   hook = function()
@@ -121,6 +121,7 @@ opt.textwidth = 80
 opt.fo = 'c'
 opt.cino = 'l1'
 
+g.mapleader = '\\'
 g.tex_flavor = 'latex'
 g.vimtex_view_method='zathura'
 g.vimtex_quickfix_mode=0
@@ -304,6 +305,7 @@ map('n', '<C-d>', ':bd<CR>')
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 map('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>')
+map('n', 'gR', '<cmd>lua vim.lsp.buf.rename()<CR>')
 map('v', '<Tab>', '>gv')
 map('v', '<S-Tab>', '<gv')
 
@@ -312,3 +314,5 @@ opt.foldexpr='nvim_treesitter#foldexpr()'
 opt.foldlevel = 20
 
 opt.mouse=''
+
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]

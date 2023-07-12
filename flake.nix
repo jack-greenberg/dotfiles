@@ -14,7 +14,7 @@
     in
     {
       formatter.${system} = pkgs.nixpkgs-fmt;
-      homeConfigurations.jack = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."jack.greenberg" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         modules = [

@@ -2,7 +2,6 @@
 local cmd = vim.cmd local fn = vim.fn
 local g = vim.g
 local opt = vim.opt
-
 vim.api.nvim_exec([[
 filetype plugin indent on
 ]], true)
@@ -306,6 +305,9 @@ map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
 map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 map('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>')
 map('n', 'gR', '<cmd>lua vim.lsp.buf.rename()<CR>')
+map('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>')
+map('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+map('n', 'go', '<cmd>lua vim.diagnostic.open_float()<CR>')
 map('v', '<Tab>', '>gv')
 map('v', '<S-Tab>', '<gv')
 
@@ -314,5 +316,3 @@ opt.foldexpr='nvim_treesitter#foldexpr()'
 opt.foldlevel = 20
 
 opt.mouse=''
-
-vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]

@@ -66,7 +66,7 @@
       };
       extraConfig = {
         core = {
-          editor = "/usr/bin/nvim";
+          editor = "nvim";
           pager = "less -F -X";
         };
         pager = {

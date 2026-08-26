@@ -39,6 +39,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # EVALS
 eval "$(gh completion -s zsh)"

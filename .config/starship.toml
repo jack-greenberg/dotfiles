@@ -13,3 +13,7 @@ vimcmd_symbol = '[\[::\]](bold red)'
 [username]
 format = '[$user]($style)'
 show_always = true
+style_user = 'bold underline white'
+
+[directory]
+style = 'italic white'

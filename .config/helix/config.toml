@@ -1,2 +1,18 @@
 [editor]
 auto-format = true
+
+[editor.soft-wrap]
+enable = true
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "error"
+max-wrap = 20
+
+[keys.normal]
+# Goto the nearest upstream Cargo.toml
+space.o = ":o %sh{nearest-cargo.sh %{buffer_name}}"
+# Print the current line's git blame information to the statusline.
+space.B = ":sh git blame -L %{cursor_line},+1 %{buffer_name}"
+"C-r" = ":reload-all"
+ret = "goto_word"

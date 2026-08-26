@@ -19,8 +19,7 @@ try_source() {
 
 # SOURCES
 source $HOME/.aliases
-source $ZSH/oh-my-zsh.sh
-try_source $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
 if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"

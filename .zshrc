@@ -21,10 +21,7 @@ try_source() {
 source $HOME/.aliases
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
 
-if [ -n "${commands[fzf-share]}" ]; then
-  source "$(fzf-share)/key-bindings.zsh"
-  source "$(fzf-share)/completion.zsh"
-fi
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh && source <(fzf --zsh)
 
 # OPTIONS
 unsetopt AUTO_CD

@@ -1,0 +1,180 @@
+# -----------------------------------------------------------------------
+# UI
+# -----------------------------------------------------------------------
+"ui.selection" = { bg = "gray3" }
+"ui.selection.primary" = { bg = "gray4" }
+
+"ui.background" = { fg = "gray9", bg = "gray0" }
+"ui.window" = { fg = "gray4" }
+"ui.text" = { fg = "gray9" }
+"ui.text.focus" = { fg = "white", modifiers = ["bold"] }
+"ui.text.inactive" = { fg = "gray6" }
+"ui.text.info" = { fg = "gray8" }
+
+"ui.cursor" = { fg = "black", bg = "white" }
+"ui.cursor.primary" = { fg = "black", bg = "white", modifiers = ["bold"] }
+"ui.cursor.match" = { fg = "white", modifiers = ["bold", "underlined"] }
+"ui.cursor.primary.normal" = { fg = "black", bg = "white" }
+"ui.cursor.primary.insert" = { fg = "black", bg = "gray9" }
+"ui.cursor.primary.select" = { fg = "black", bg = "gray8" }
+"ui.cursor.normal" = { fg = "black", bg = "gray7" }
+"ui.cursor.insert" = { fg = "black", bg = "gray7" }
+"ui.cursor.select" = { fg = "black", bg = "gray7" }
+
+"ui.cursorline.primary" = { bg = "gray2" }
+"ui.cursorline.secondary" = { bg = "gray1" }
+"ui.cursorcolumn.primary" = { bg = "gray2" }
+"ui.cursorcolumn.secondary" = { bg = "gray1" }
+
+"ui.gutter" = { fg = "gray5", bg = "gray0" }
+"ui.gutter.selected" = { fg = "white", bg = "gray2", modifiers = ["bold"] }
+
+"ui.linenr" = { fg = "gray5", bg = "gray0" }
+"ui.linenr.selected" = { fg = "white", bg = "gray1", modifiers = ["bold"] }
+
+"ui.statusline" = { fg = "gray8", bg = "gray1" }
+"ui.statusline.inactive" = { fg = "gray5", bg = "gray1" }
+"ui.statusline.normal" = { fg = "black", bg = "white", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "white", bg = "gray3", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "black", bg = "gray8", modifiers = ["bold"] }
+"ui.statusline.separator" = { fg = "gray4" }
+
+"ui.popup" = { fg = "gray9", bg = "gray1" }
+"ui.popup.info" = { fg = "gray9", bg = "gray1" }
+"ui.window.info" = { fg = "gray7" }
+"ui.help" = { fg = "gray9", bg = "gray1" }
+
+"ui.menu" = { fg = "gray8", bg = "gray1" }
+"ui.menu.selected" = { fg = "black", bg = "gray9", modifiers = ["bold"] }
+"ui.menu.scroll" = { fg = "gray5", bg = "gray2" }
+
+"ui.highlight" = { bg = "gray2", modifiers = ["underlined"] }
+
+"ui.virtual.ruler" = { bg = "gray1" }
+"ui.virtual.whitespace" = { fg = "gray3" }
+"ui.virtual.indent-guide" = { fg = "gray2" }
+"ui.virtual.inlay-hint" = { fg = "gray5", modifiers = ["italic"] }
+"ui.virtual.jump-label" = { fg = "black", bg = "white", modifiers = ["bold"] }
+"ui.virtual.wrap" = { fg = "gray4" }
+
+"ui.bufferline" = { fg = "gray6", bg = "gray1" }
+"ui.bufferline.active" = { fg = "white", bg = "gray2", modifiers = ["bold"] }
+"ui.bufferline.background" = { bg = "gray0" }
+
+# -----------------------------------------------------------------------
+# Diagnostics — the only intentional colors in the theme
+# -----------------------------------------------------------------------
+"error" = { fg = "red", modifiers = ["bold"] }
+"warning" = { fg = "yellow" }
+"info" = { fg = "gray8" }
+"hint" = { fg = "gray6", modifiers = ["italic"] }
+
+"diagnostic.error" = { modifiers = ["underlined"], underline = { color = "red", style = "curl" } }
+"diagnostic.warning" = { modifiers = ["underlined"], underline = { color = "yellow", style = "curl" } }
+"diagnostic.info" = { modifiers = ["underlined"], underline = { color = "gray7", style = "dotted" } }
+"diagnostic.hint" = { modifiers = ["underlined"], underline = { color = "gray5", style = "dotted" } }
+
+# -----------------------------------------------------------------------
+# Syntax highlighting — grayscale, distinguished by weight/slant/underline
+# -----------------------------------------------------------------------
+"attribute" = { fg = "gray7", modifiers = ["italic"] }
+
+"type" = { fg = "gray9", modifiers = ["bold"] }
+"type.builtin" = { fg = "gray9", modifiers = ["bold"] }
+"type.enum.variant" = { fg = "gray8" }
+"constructor" = { fg = "gray9", modifiers = ["bold"] }
+
+"constant" = { fg = "gray8" }
+"constant.builtin" = { fg = "gray8", modifiers = ["bold"] }
+"constant.character.escape" = { fg = "white", modifiers = ["bold"] }
+"constant.numeric" = { fg = "gray9" }
+"constant.numeric.integer" = { fg = "gray9" }
+"constant.numeric.float" = { fg = "gray9" }
+
+"string" = { fg = "gray8", modifiers = ["italic"] }
+"string.regexp" = { fg = "gray8", modifiers = ["italic", "underlined"] }
+"string.special" = { fg = "white", modifiers = ["italic"] }
+"string.special.symbol" = { fg = "gray8" }
+
+"comment" = { fg = "gray6", modifiers = ["italic"] }
+"comment.line" = { fg = "gray6", modifiers = ["italic"] }
+"comment.block" = { fg = "gray6", modifiers = ["italic"] }
+"comment.block.documentation" = { fg = "gray7", modifiers = ["italic"] }
+
+"variable" = { fg = "gray9" }
+"variable.builtin" = { fg = "white", modifiers = ["italic"] }
+"variable.parameter" = { fg = "gray9", modifiers = ["italic"] }
+"variable.other.member" = { fg = "gray8" }
+
+"label" = { fg = "gray8", modifiers = ["underlined"] }
+
+"punctuation" = { fg = "gray6" }
+"punctuation.delimiter" = { fg = "gray6" }
+"punctuation.bracket" = { fg = "gray6" }
+"punctuation.special" = { fg = "gray7" }
+
+# Keywords in general: bold. Control-flow: bold + underline.
+"keyword" = { fg = "white", modifiers = ["bold"] }
+"keyword.control" = { fg = "white", modifiers = ["bold"] }
+"keyword.control.conditional" = { fg = "white", modifiers = ["bold", "underlined"] }
+"keyword.control.repeat" = { fg = "white", modifiers = ["bold", "underlined"] }
+"keyword.control.import" = { fg = "gray9", modifiers = ["bold"] }
+"keyword.control.return" = { fg = "white", modifiers = ["bold", "underlined"] }
+"keyword.control.exception" = { fg = "white", modifiers = ["bold", "underlined"] }
+"keyword.operator" = { fg = "gray9" }
+"keyword.directive" = { fg = "gray8", modifiers = ["italic"] }
+"keyword.function" = { fg = "white", modifiers = ["bold"] }
+"keyword.storage" = { fg = "gray9", modifiers = ["bold"] }
+"keyword.storage.type" = { fg = "gray9", modifiers = ["bold"] }
+"keyword.storage.modifier" = { fg = "gray9", modifiers = ["bold", "italic"] }
+
+# Rust's `unsafe` keyword is the one non-diagnostic use of red.
+"keyword.control.unsafe" = { fg = "red", modifiers = ["bold", "underlined"] }
+
+"operator" = { fg = "gray8" }
+
+"function" = { fg = "gray9", modifiers = ["bold"] }
+"function.builtin" = { fg = "gray9", modifiers = ["bold", "italic"] }
+"function.method" = { fg = "gray9", modifiers = ["bold"] }
+"function.macro" = { fg = "gray8", modifiers = ["bold", "italic"] }
+
+"tag" = { fg = "gray9", modifiers = ["bold"] }
+"namespace" = { fg = "gray7", modifiers = ["italic"] }
+"special" = { fg = "white", modifiers = ["bold"] }
+
+"markup.heading" = { fg = "white", modifiers = ["bold", "underlined"] }
+"markup.list" = { fg = "gray8" }
+"markup.list.checked" = { fg = "gray6", modifiers = ["dim"] }
+"markup.list.unchecked" = { fg = "gray8" }
+"markup.bold" = { fg = "white", modifiers = ["bold"] }
+"markup.italic" = { fg = "gray9", modifiers = ["italic"] }
+"markup.strikethrough" = { fg = "gray5", modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "gray7", modifiers = ["underlined"] }
+"markup.link.text" = { fg = "gray9", modifiers = ["underlined"] }
+"markup.quote" = { fg = "gray6", modifiers = ["italic"] }
+"markup.raw" = { fg = "gray8" }
+
+"diff.plus" = { fg = "gray9", modifiers = ["bold"] }
+"diff.minus" = { fg = "gray5", modifiers = ["crossed_out"] }
+"diff.delta" = { fg = "gray7", modifiers = ["italic"] }
+
+# -----------------------------------------------------------------------
+# Palette
+# -----------------------------------------------------------------------
+[palette]
+black       = "#000000"
+white       = "#ffffff"
+
+gray0       = "#0a0a0a"  # near-black background
+gray1       = "#141414"  # panel / gutter background
+gray2       = "#1e1e1e"  # selection background
+gray3       = "#2a2a2a"  # borders, cursorline
+gray4       = "#3a3a3a"  # inactive borders
+gray5       = "#555555"  # muted UI text
+gray6       = "#707070"  # comments, punctuation
+gray7       = "#8f8f8f"  # secondary text
+gray8       = "#b0b0b0"  # primary-adjacent text
+gray9       = "#d6d6d6"  # near-white text
+
+red         = "#ff4a4a"  # errors, unsafe
+yellow      = "#e8c547"  # warnings

@@ -26,3 +26,5 @@ space.o = ":o %sh{nearest-cargo.sh %{buffer_name}}"
 space.B = ":sh git blame -L %{cursor_line},+1 %{buffer_name}"
 "C-r" = ":reload-all"
 ret = "goto_word"
+# Reflow a paragraph
+"C-p" = "@mip:reflow<ret>"

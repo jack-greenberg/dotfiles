@@ -50,7 +50,7 @@
 
 "ui.highlight" = { bg = "gray2", modifiers = ["underlined"] }
 
-"ui.virtual.ruler" = { bg = "gray1" }
+"ui.virtual.ruler" = { bg = "gray3" }
 "ui.virtual.whitespace" = { fg = "gray3" }
 "ui.virtual.indent-guide" = { fg = "gray2" }
 "ui.virtual.inlay-hint" = { fg = "gray5", modifiers = ["italic"] }
